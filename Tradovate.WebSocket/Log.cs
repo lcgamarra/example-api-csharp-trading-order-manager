@@ -1,5 +1,7 @@
 using System;
 using System.Diagnostics;
+using System.Net.Mime;
+using System.Windows;
 
 namespace Tradovate
 {
@@ -7,13 +9,10 @@ namespace Tradovate
     {
         static bool Enabled = true;
         static private Stopwatch stopwatch = new Stopwatch();
+        public static Action<object> LogAction { get; set; }
         static public void Write(object message)
         {
-            if (Enabled)
-            {
-                Console.WriteLine($"[+{stopwatch.ElapsedMilliseconds}] {message}");
-                stopwatch.Restart();
-            }
+            LogAction(message);
         }
     }
 }

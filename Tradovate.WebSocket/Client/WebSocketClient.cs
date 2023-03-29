@@ -337,7 +337,7 @@ namespace Tradovate.Services.Client
             JToken cachedResponse;
             if (Cache.TryRespond(endpoint, queryParams, out cachedResponse))
             {
-                // Log.Write($"FROM CACHE: {cachedResponse.ToString().Replace("\n", "").Replace("\r", "")}");
+                Log.Write($"FROM CACHE: {cachedResponse.ToString().Replace("\n", "").Replace("\r", "")}");
                 promise.TrySetResult(CreateRestResponse(200, cachedResponse));
             }
             else

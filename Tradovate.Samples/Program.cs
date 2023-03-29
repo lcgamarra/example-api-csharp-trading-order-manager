@@ -32,9 +32,9 @@ namespace Tradovate
             MyPassword = args[1];
             var password = args[1];
             LiveUrl = "https://live-api-d.tradovate.com/v1";
-            DemoUrl = "https://demo-api-d.tradovate.com/v1";
+            DemoUrl = "https://demo.tradovateapi.com/v1";
 
-            var accessTokenResponse = Authentication.GetAccessToken(LiveUrl, MyUsername, password);
+            var accessTokenResponse = Authentication.GetAccessToken(DemoUrl, MyUsername, password);
             AccessToken = accessTokenResponse.AccessToken;
             MyUserId = accessTokenResponse.UserId ?? 0;
 
